@@ -1,5 +1,7 @@
+/// <reference path="_references.js" />
+
 QUnit.module('Calculator Test Suite', {
-    beforeEach: initialize
+    beforeEach: calculatorNamespace.initialize
 });
 
 QUnit.test("Button Click Test", function (assert) {
@@ -57,6 +59,6 @@ QUnit.test("Clear Test", function (assert) {
 
 QUnit.test("Initialize Test", function (assert) {
     var expected = '0';
-    assert.equal(txtInput.value, expected, 'Expected value: ' + expected + ' Actual value: ' + txtInput.value);
-    assert.equal(txtResult.value, expected, 'Expected value: ' + expected + ' Actual value: ' + txtResult.value);
+    assert.equal($('#txtInput').val(), expected, 'Expected value: ' + expected + ' Actual value: ' + txtInput.value);
+    assert.equal($('#txtResult').val(), expected, 'Expected value: ' + expected + ' Actual value: ' + txtResult.value);
 });
