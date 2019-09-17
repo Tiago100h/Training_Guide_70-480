@@ -7,54 +7,49 @@ QUnit.module('Calculator Test Suite', {
 QUnit.test("Button Click Test", function (assert) {
     var buttonQuantity = 10;
     for (var i = 0; i < buttonQuantity; i++) {
-        var btn = document.getElementById('btn' + i);
-        btn.click();
-        var result = txtInput.value[txtInput.value.length - 1];
+        $('#btnNumber' + i).triggerHandler('click');
+        var result = $('#txtInput').val()[$('#txtInput').val().length - 1];
         var expected = String(i);
         assert.equal(result, expected, 'Expected value: ' + expected + ' Actual value: ' + result);
         var expectedLength = i < 2 ? 1 : i;
-        assert.equal(txtInput.value.length, expectedLength, 'Expected string length: ' + expectedLength + ' Actual value: ' + txtInput.value.length);
+        assert.equal($('#txtInput').val().length, expectedLength, 'Expected string length: ' + expectedLength + ' Actual value: ' + $('#txtInput').val().length);
     }
 });
 
 QUnit.test("Add Test", function (assert) {
-    txtInput.value = '10';
-    txtResult.value = '20';
-    var btnPlus = document.getElementById('btnPlus');
-    btnPlus.click();
+    $('#txtInput').val('10');
+    $('#txtResult').val('20');
+    $('#btnPlus').triggerHandler('click');
     var expected = '30';
-    assert.equal(txtResult.value, expected, 'Expected value: ' + expected + ' Actual value: ' + txtResult.value);
+    assert.equal($('#txtResult').val(), expected, 'Expected value: ' + expected + ' Actual value: ' + $('#txtResult').val());
     expected = '0';
-    assert.equal(txtInput.value, expected, 'Expected value: ' + expected + ' Actual value: ' + txtInput.value);
+    assert.equal($('#txtInput').val(), expected, 'Expected value: ' + expected + ' Actual value: ' + $('#txtInput').val());
 });
 
 QUnit.test("Subtract Test", function (assert) {
-    txtInput.value = '10';
-    txtResult.value = '20';
-    var btnMinus = document.getElementById('btnMinus');
-    btnMinus.click();
+    $('#txtInput').val('10');
+    $('#txtResult').val('20');
+    $('#btnMinus').triggerHandler('click');
     var expected = '10';
-    assert.equal(txtResult.value, expected, 'Expected value: ' + expected + ' Actual value: ' + txtResult.value);
+    assert.equal($('#txtResult').val(), expected, 'Expected value: ' + expected + ' Actual value: ' + $('#txtResult').val());
     expected = '0';
-    assert.equal(txtInput.value, expected, 'Expected value: ' + expected + ' Actual value: ' + txtInput.value);
+    assert.equal($('#txtInput').val(), expected, 'Expected value: ' + expected + ' Actual value: ' + $('#txtInput').val());
 });
 
 QUnit.test("Clear Entry Test", function (assert) {
-    txtInput.value = '10';
-    var btnClearEntry = document.getElementById('btnClearEntry');
-    btnClearEntry.click();
+    $('#txtInput').val('10');
+    $('#btnClearEntry').triggerHandler('click');
     var expected = '0';
-    assert.equal(txtInput.value, expected, 'Expected value: ' + expected + ' Actual value: ' + txtInput.value);
+    assert.equal($('#txtInput').val(), expected, 'Expected value: ' + expected + ' Actual value: ' + $('#txtInput').val());
 });
 
 QUnit.test("Clear Test", function (assert) {
-    txtInput.value = '10';
-    txtResult.value = '20';
-    var btnClear = document.getElementById('btnClear');
-    btnClear.click();
+    $('#txtInput').val('10');
+    $('#txtResult').val('20');
+    $('#btnClear').triggerHandler('click');
     var expected = '0';
-    assert.equal(txtInput.value, expected, 'Expected value: ' + expected + ' Actual value: ' + txtInput.value);
-    assert.equal(txtResult.value, expected, 'Expected value: ' + expected + ' Actual value: ' + txtResult.value);
+    assert.equal($('#txtInput').val(), expected, 'Expected value: ' + expected + ' Actual value: ' + $('#txtInput').val());
+    assert.equal($('#txtResult').val(), expected, 'Expected value: ' + expected + ' Actual value: ' + $('#txtResult').val());
 });
 
 QUnit.test("Initialize Test", function (assert) {
