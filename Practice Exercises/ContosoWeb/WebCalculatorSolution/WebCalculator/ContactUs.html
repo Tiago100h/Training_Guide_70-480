@@ -24,7 +24,7 @@
 
         <div role="main">
             <div id="ContactUs">
-                <form name="ContactForm" method="get">
+                <form name="ContactForm" method="post" action="/ContactMessage">
                     <div>
                         <label for="firstName">First Name:</label>
                         <input type="text" id="firstName" name="firstName" required="required" />
@@ -42,9 +42,10 @@
                         <textarea type="text" id="message" name="message" required="required"></textarea>
                     </div>
                     <div>
-                        <button type="submit" id="submit" name="submit">Submit</button>
+                        <button type="button" id="submit" name="submit">Submit</button>
                     </div>
                 </form>
+                <div id="result"></div>
             </div>
         </div>
 
@@ -58,6 +59,7 @@
     </div>
 
     <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/ContactUs.js"></script>
 </body>
 
 </html>
