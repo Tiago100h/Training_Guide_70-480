@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 function callServer() {
-    var data = $('#ContactForm').serialize();
+    var data = $('form[name="ContactForm"]').serialize();
     $.post('/ContactService', data, function (returnObject) {
         $('#result').html(returnObject.result);
     }, 'json');
